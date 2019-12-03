@@ -1,16 +1,18 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet} from 'react-native'
+import { View, TouchableOpacity, StyleSheet, TouchableNativeFeedback, Platform} from 'react-native'
 import {AppTextRegular} from "./AppTextRegular";
 import {THEME} from "../../theme";
 
 export const AppButton = ({children, onPress, color = THEME.MAIN_COLOR}) => {
+    // TouchableNativeFeedback несет эффект ripple только для андроид. Эффект волн при нажатии
+    const Wrapper = Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity;
 
     return (
-        <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+        <Wrapper onPress={onPress} activeOpacity={0.7}>
             <View style={{...styles.button, backgroundColor: color}}>
                 <AppTextRegular style={styles.text}>{children}</AppTextRegular>
             </View>
-        </TouchableOpacity>
+        </Wrapper>
     )
 };
 
