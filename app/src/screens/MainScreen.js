@@ -23,11 +23,10 @@ export const MainScreen = ({addTodo, todos, removeTodo, openTodo}) => {
     return (
         <View>
             <AddTodo onSubmit={addTodo}/>
-
             {content}
         </View>
     )
-}
+};
 
 const styles = StyleSheet.create({
     imageWrap: {

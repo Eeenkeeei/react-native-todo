@@ -3,16 +3,16 @@ import { View, StyleSheet, TextInput, Button, Alert } from 'react-native'
 import { THEME } from '../theme'
 
 export const AddTodo = ({ onSubmit }) => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState('');
 
   const pressHandler = () => {
     if (value.trim()) {
-      onSubmit(value)
+      onSubmit(value);
       setValue('')
     } else {
       Alert.alert('Название дела не может быть пустым')
     }
-  }
+  };
 
   return (
     <View style={styles.block}>
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: THEME.MAIN_COLOR
   }
-})
+});
